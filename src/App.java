@@ -23,15 +23,20 @@ public class App {
         System.out.println(listaDeFilmes.size());
         
         //exibir e manipular os dados
-        int count = 1;
-        for (Map<String,String> filme : listaDeFilmes) {
-            System.out.println(count);
-            System.out.println(filme.get("title"));
-            System.out.println(filme.get("image"));
-            System.out.println(filme.get("imDbRating"));
-            System.out.println();
-            count++;
-        }
+        String white = "\u001b[37m";
+        String bold = "\u001b[1m";
+        String reset = "\u001b[m";
+        String backMagenta = "\u001b[45m";
+        String yellowBold = "\u001b[1;33m";
+        String tituloTxt = white.concat("Título: ").concat(bold);
+        String imageTxt = white.concat("Imagem: ").concat(bold);
+        String classificacaoTxt = white.concat(backMagenta).concat("Classificação: ");
 
+        for (Map<String,String> filme : listaDeFilmes) {
+            System.out.println(tituloTxt + filme.get("title") + reset);
+            System.out.println(imageTxt + filme.get("image") + reset);
+            System.out.println(classificacaoTxt + filme.get("imDbRating") + reset);
+            System.out.println(yellowBold + "*".repeat((int) Double.parseDouble(filme.get("imDbRating"))) + reset);
+        }
     }
 }
