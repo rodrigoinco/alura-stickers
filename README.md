@@ -1,18 +1,18 @@
-## Getting Started
+## Imersão Java - ALURA
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Serão 5 dias imersos para você desenvolver seu primeiro projeto em Java, adicionar ao seu portfólio e dar um upgrade na sua carreira.
 
-## Folder Structure
 
-The workspace contains two folders by default, where:
+## :flower_playing_cards: Alura Stickers
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+O objetivo desse projeto, além do ensino imersivo da tecnologia Java é criar figurinhas no Whatsapp a partir de imagens obtidas através de endpoints de APIs.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Aula 1: Consumindo uma API de filmes com Java
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Aula 2: Gerando figurinha para Whatsapp
 
-## Dependency Management
+## Aula 3: Ligando as pontas, refatoração e orientação a objetos
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Aula 4: Criando nossa própria API com Spring
+
+## Aula 5: Publicando nossa API no Cloud
