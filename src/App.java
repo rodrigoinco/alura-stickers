@@ -1,4 +1,6 @@
+import java.io.InputStream;
 import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -17,7 +19,7 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         // fazer uma conexão HTTP e buscar os 250 filmes
-        String url = "https://alura-filmes.herokuapp.com/conteudos";
+        String url = "https://imdb-api.com/en/API/MostPopularMovies/k_texyfc4f";
         URI endereco = URI.create(url);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder(endereco).GET().build();
@@ -27,19 +29,22 @@ public class App {
         // extrair só os dados que interessam (título, poster, classificação)
         var parser = new JsonParser();
         List<Map<String, String>> listaDeFilmes = parser.parse(body);
-        System.out.println(listaDeFilmes.size());
 
-        // exibir e manipular os dados
+        var geradora = new GeradoraDeFigurinhas();
 
-        String tituloTxt = WHITE + "Título: " + BOLD;
-        String imageTxt = WHITE + "Imagem: " + BOLD;
-        String classificacaoTxt = WHITE + BKMAGENTA + "Classificação: ";
+        for (int i = 0; i < 20; i++) { 
+            String[] urlImageArr = listaDeFilmes.get(i).get("image").split("@._");
+            String urlImage = urlImageArr.length > 1 ? urlImageArr[0] + "@.jpg" : urlImageArr[0];
+            String titulo = listaDeFilmes.get(i).get("title").replaceAll(":", "");
 
-        for (Map<String, String> filme : listaDeFilmes) {
-            System.out.println(tituloTxt + filme.get("title") + RESET);
-            System.out.println(imageTxt + filme.get("image") + RESET);
-            System.out.println(classificacaoTxt + filme.get("imDbRating") + RESET);
-            System.out.println(YELLOW + BOLD + "*".repeat((int) Double.parseDouble(filme.get("imDbRating"))) + RESET);
+            System.out.println(titulo);
+
+            InputStream inputStream = new URL(urlImage).openStream();
+            String nomeArquivo = titulo + ".png";
+            
+            String nota = listaDeFilmes.get(i).get("imDbRating") == "" ? "0": listaDeFilmes.get(i).get("imDbRating");
+            
+            geradora.cria(inputStream, nomeArquivo, nota);
         }
     }
 }
