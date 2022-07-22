@@ -1,6 +1,6 @@
 ## Imersão Java - ALURA
 
-!(https://img.shields.io/badge/Project-In%20Progress-brightgreen?style=flat)
+![](https://img.shields.io/badge/Project-In%20Progress-brightgreen?style=flat)
 
 Serão 5 dias imersos para você desenvolver seu primeiro projeto em Java, adicionar ao seu portfólio e dar um upgrade na sua carreira.
 
