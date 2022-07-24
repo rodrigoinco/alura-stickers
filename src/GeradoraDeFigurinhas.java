@@ -14,7 +14,6 @@ import javax.imageio.ImageIO;
 public class GeradoraDeFigurinhas {
 
         public void cria(InputStream inputStream, String nomeArquivo, String nota) throws Exception {
-
                 // Obtem o texto e a imagem que será sobreposta no sticker
                 String[] dadosSticker = textoImagemPorNota(nota);
 
@@ -91,6 +90,8 @@ public class GeradoraDeFigurinhas {
         }
 
         private String[] textoImagemPorNota(String nota) {
+                nota = nota == null ? "10" : nota;
+                
                 String[] retorno = new String[2];
 
                 if (Double.parseDouble(nota) > 8) {
